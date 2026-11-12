@@ -20,6 +20,7 @@ This repository contains only the marketing site. The iOS app is not part of it.
 ```
 .
 ├── index.html            # Landing page: features, messages, how it works, support
+├── support.html          # Support page: how to file issues on GitHub
 ├── privacy.html          # Privacy policy
 ├── assets/
 │   ├── style.css         # Shared stylesheet
@@ -47,7 +48,7 @@ The site is published with GitHub Pages straight from the repository root. Pushi
 
 ## Editing
 
-- **Copy:** edit `index.html` or `privacy.html` directly. The header and footer are repeated in both files, so update both when you change navigation.
+- **Copy:** edit `index.html`, `support.html` or `privacy.html` directly. The header and footer are repeated in every page, so update all of them when you change navigation.
 - **Privacy policy:** update the "Effective" date in `privacy.html` whenever the policy changes. Keep it in sync with what the app actually does.
 - **Styling:** the design tokens (colors, max width) are CSS custom properties at the top of `assets/style.css`. The look mirrors the app: true black, neon red, and a faint grid.
 - **Icons:** `favicon.png`, `apple-touch-icon.png` and `icon-512.png` are referenced from the page `<head>` and the hero. Replace the files in place to keep the paths working.
@@ -55,7 +56,7 @@ The site is published with GitHub Pages straight from the repository root. Pushi
 
 ## Contact
 
-Questions or feedback: [support@halans.dev](mailto:support@halans.dev)
+Bugs, feature requests, and questions: [open an issue](https://github.com/halans/duo-on-air/issues/new). For anything private, email [support@halans.dev](mailto:support@halans.dev).
 
 ## License
 

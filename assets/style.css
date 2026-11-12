@@ -95,6 +95,14 @@ h3 { font-size: 18px; margin: 0 0 6px; }
 .legal h2 { font-size: 21px; margin-top: 32px; }
 .summary { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--red); border-radius: 10px; padding: 16px 18px; }
 
+/* Button link */
+.button {
+  display: inline-block; padding: 10px 20px; border-radius: 999px;
+  background: var(--red); color: #000; font-weight: 700; text-decoration: none;
+}
+.button:hover { background: #fff; color: #000; }
+.button:focus-visible { outline: 2px solid var(--red-soft); outline-offset: 3px; }
+
 /* Footer */
 .site-footer { margin-top: 48px; padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--text-dim); font-size: 14px; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
