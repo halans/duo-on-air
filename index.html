@@ -77,16 +77,16 @@
       <section aria-labelledby="screenshots">
         <h2 id="screenshots">See it in action</h2>
         <div class="shots">
-          <figure class="wide">
-            <img src="assets/screenshot-sign.jpg" alt="The QUIET PLEASE message in glowing green letters on a black screen with a faint grid, filling the whole display." width="1280" height="880">
+          <figure>
+            <button type="button" class="shot-btn" aria-label="Enlarge screenshot"><img src="assets/screenshot-sign.jpg" alt="The QUIET PLEASE message in glowing green letters on a black screen with a faint grid, filling the whole display." width="1280" height="880"></button>
             <figcaption>The sign fills the whole outer screen.</figcaption>
           </figure>
           <figure>
-            <img src="assets/screenshot-settings.jpg" alt="The DuoOnAir settings sheet with a live preview of QUIET PLEASE and the Work, Studio and Fun message categories." width="1280" height="880" loading="lazy">
+            <button type="button" class="shot-btn" aria-label="Enlarge screenshot"><img src="assets/screenshot-settings.jpg" alt="The DuoOnAir settings sheet with a live preview of QUIET PLEASE and the Work, Studio and Fun message categories." width="1280" height="880" loading="lazy"></button>
             <figcaption>Pick a message from Work, Studio or Fun, with a live preview.</figcaption>
           </figure>
           <figure>
-            <img src="assets/screenshot-help.jpg" alt="The DuoOnAir Help screen explaining tent mode, tap to customize, and swipe to change the message." width="1280" height="880" loading="lazy">
+            <button type="button" class="shot-btn" aria-label="Enlarge screenshot"><img src="assets/screenshot-help.jpg" alt="The DuoOnAir Help screen explaining tent mode, tap to customize, and swipe to change the message." width="1280" height="880" loading="lazy"></button>
             <figcaption>Built-in help explains tent mode and the gestures.</figcaption>
           </figure>
         </div>
@@ -145,5 +145,29 @@
       <span>© 2026 DuoOnAir</span>
     </div>
   </footer>
+
+  <dialog class="lightbox" aria-label="Screenshot preview">
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <p class="lightbox-caption"></p>
+  </dialog>
+  <script>
+    (function () {
+      var dlg = document.querySelector('.lightbox');
+      if (!dlg || !dlg.showModal) return;
+      var big = dlg.querySelector('img'), cap = dlg.querySelector('.lightbox-caption');
+      document.querySelectorAll('.shot-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var img = btn.querySelector('img'), fc = btn.parentNode.querySelector('figcaption');
+          big.src = img.currentSrc || img.src;
+          big.alt = img.alt;
+          cap.textContent = fc ? fc.textContent : '';
+          dlg.showModal();
+        });
+      });
+      // Click anywhere (backdrop, image, or close button) to dismiss; Esc works natively.
+      dlg.addEventListener('click', function () { dlg.close(); });
+    })();
+  </script>
 </body>
 </html>
