@@ -89,6 +89,16 @@ h3 { font-size: 18px; margin: 0 0 6px; }
   font-weight: 800; letter-spacing: 0.04em; font-size: 14px; color: var(--red-soft);
 }
 
+.msg-group { margin: 24px 0 10px; color: var(--text-dim); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Screenshots */
+.shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0; }
+.shots figure { margin: 0; }
+.shots .wide { grid-column: 1 / -1; }
+.shots img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); background: #000; }
+.shots figcaption { margin-top: 8px; color: var(--text-dim); font-size: 14px; }
+@media (max-width: 560px) { .shots { grid-template-columns: 1fr; } }
+
 /* Privacy page */
 .legal { padding-top: 24px; }
 .legal h1 { font-size: 36px; margin: 8px 0 4px; }

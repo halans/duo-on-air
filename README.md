@@ -6,13 +6,16 @@ This repository contains only the marketing site. The iOS app is not part of it.
 
 ## About the app
 
-- **Fills the screen:** messages scale to the outer display and wrap onto up to three lines when that makes them bigger.
-- **Neon animations:** Glow, Pulse, Breathe, Blink, or Neon Flicker, with one faulty letter that stutters like a real tube.
-- **Your colors and fonts:** red, amber, green, blue, pink, white or a custom color. Solid, outline, or rainbow letters in seven typefaces.
+- **Fills the screen:** messages scale to the outer display, wrapping onto two or three lines when that makes them bigger, and stay centered clear of the camera.
+- **Neon animations:** Glow, Pulse, Breathe, Blink, or Neon Flicker (with one faulty letter that stutters like a real tube), with adjustable speed.
+- **Your colors:** red, amber, green, blue, pink, white or a custom color, as solid, outline, or rainbow letters.
+- **Seven typefaces:** Classic, Rounded and Mono (SF Pro), Helvetica Neue, JetBrains Mono and Space Grotesk.
+- **Backdrop:** optional faint background grid and a corner glow in the text color.
 - **Stays on:** the screen doesn't sleep while the sign is showing.
-- **Swipe to switch:** swipe left or right to change the message.
-- **Accessible:** respects Reduce Motion, keeps flashing below safe limits, and supports VoiceOver.
-- **Ready-made messages:** ON AIR, DND, RECORDING, BUSY, MEETING, NOT NOW, or your own text.
+- **Swipe to switch:** tap the sign to open settings; swipe left or right to move through the messages in a category.
+- **Accessible:** Reduce Motion replaces flashing and pulsing with a steady sign, flicker stays under three flashes a second, and VoiceOver can read and change the message.
+- **Dark or light:** light, dark or system appearance for settings. The sign itself is always black.
+- **31 ready-made messages:** Work (15, e.g. ON A CALL, FOCUS TIME, BRB), Studio (8, e.g. ON AIR, RECORDING, MIC LIVE) and Fun (8, e.g. CODING, NAPPING, WAFFLE BREAK), plus your own text.
 - **Private:** no accounts, analytics, ads, or network access. See the [privacy policy](privacy.html).
 
 ## Site structure
@@ -26,7 +29,8 @@ This repository contains only the marketing site. The iOS app is not part of it.
 │   ├── style.css         # Shared stylesheet
 │   ├── favicon.png       # Browser tab icon
 │   ├── apple-touch-icon.png
-│   └── icon-512.png      # App icon shown in the hero
+│   ├── icon-512.png      # App icon shown in the hero
+│   └── screenshot-*.jpg  # App screenshots (sign, settings, help), 1280×880
 └── .nojekyll             # Tells GitHub Pages to skip Jekyll processing
 ```
 

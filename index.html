@@ -37,15 +37,23 @@
         <ul class="features">
           <li>
             <h3>Fills the screen</h3>
-            <p>Messages scale to fill the outer display and wrap onto up to three lines when that makes them bigger.</p>
+            <p>Messages scale to fill the outer display, wrapping onto two or three lines when that makes them bigger, and stay centered clear of the camera.</p>
           </li>
           <li>
             <h3>Neon animations</h3>
-            <p>Glow, Pulse, Breathe, Blink, or Neon Flicker, with a single faulty letter that stutters like a real tube.</p>
+            <p>Glow, Pulse, Breathe, Blink, or Neon Flicker, with a single faulty letter that stutters like a real tube. Speed is adjustable.</p>
           </li>
           <li>
-            <h3>Your colors and fonts</h3>
-            <p>Red, amber, green, blue, pink, white or any custom color. Solid, outline, or rainbow letters in seven typefaces.</p>
+            <h3>Your colors</h3>
+            <p>Red, amber, green, blue, pink, white or any custom color. Solid, outline, or rainbow letters.</p>
+          </li>
+          <li>
+            <h3>Seven typefaces</h3>
+            <p>Classic, Rounded and Mono (SF Pro), Helvetica Neue, JetBrains Mono and Space Grotesk.</p>
+          </li>
+          <li>
+            <h3>Backdrop</h3>
+            <p>Add a faint background grid and a corner glow in the text color.</p>
           </li>
           <li>
             <h3>Stays on</h3>
@@ -53,19 +61,59 @@
           </li>
           <li>
             <h3>Swipe to switch</h3>
-            <p>Swipe left or right on the sign to change the message without opening settings.</p>
+            <p>Swipe left or right on the sign to move through the messages in a category without opening settings.</p>
           </li>
           <li>
             <h3>Accessible</h3>
-            <p>Respects Reduce Motion, keeps flashing below safe limits, and supports VoiceOver.</p>
+            <p>Reduce Motion replaces flashing and pulsing with a steady sign, flicker stays under three flashes a second, and VoiceOver can read and change the message.</p>
+          </li>
+          <li>
+            <h3>Dark or light</h3>
+            <p>Choose light, dark or system appearance for settings. The sign itself is always black.</p>
           </li>
         </ul>
       </section>
 
+      <section aria-labelledby="screenshots">
+        <h2 id="screenshots">See it in action</h2>
+        <div class="shots">
+          <figure class="wide">
+            <img src="assets/screenshot-sign.jpg" alt="The QUIET PLEASE message in glowing green letters on a black screen with a faint grid, filling the whole display." width="1280" height="880">
+            <figcaption>The sign fills the whole outer screen.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshot-settings.jpg" alt="The DuoOnAir settings sheet with a live preview of QUIET PLEASE and the Work, Studio and Fun message categories." width="1280" height="880" loading="lazy">
+            <figcaption>Pick a message from Work, Studio or Fun, with a live preview.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshot-help.jpg" alt="The DuoOnAir Help screen explaining tent mode, tap to customize, and swipe to change the message." width="1280" height="880" loading="lazy">
+            <figcaption>Built-in help explains tent mode and the gestures.</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section aria-labelledby="messages">
         <h2 id="messages">Ready-made messages</h2>
+        <p class="subtle">31 messages in three categories, plus your own text.</p>
+
+        <h3 class="msg-group">Work</h3>
         <ul class="messages">
-          <li>ON AIR</li><li>DND</li><li>RECORDING</li><li>BUSY</li><li>MEETING</li><li>NOT NOW</li><li>YOUR OWN TEXT</li>
+          <li>ON A CALL</li><li>IN A MEETING</li><li>LIVE</li><li>STREAMING</li><li>BUSY</li><li>FOCUS TIME</li><li>DND</li><li>DO NOT DISTURB</li><li>AVAILABLE</li><li>COME IN</li><li>BACK SOON</li><li>BRB</li><li>ON MUTE</li><li>CAMERA ON</li><li>NOT NOW</li>
+        </ul>
+
+        <h3 class="msg-group">Studio</h3>
+        <ul class="messages">
+          <li>ON AIR</li><li>RECORDING</li><li>EDITING</li><li>REHEARSAL</li><li>PODCASTING</li><li>MIC LIVE</li><li>QUIET PLEASE</li><li>SHOOTING</li>
+        </ul>
+
+        <h3 class="msg-group">Fun</h3>
+        <ul class="messages">
+          <li>CODING</li><li>GAMING</li><li>NAPPING</li><li>THINKING…</li><li>COFFEE BREAK</li><li>BRAIN OFFLINE</li><li>GENIUS AT WORK</li><li>WAFFLE BREAK</li>
+        </ul>
+
+        <h3 class="msg-group">Your own</h3>
+        <ul class="messages">
+          <li>YOUR OWN TEXT</li>
         </ul>
       </section>
 
