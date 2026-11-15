@@ -56,7 +56,7 @@ The site is published with GitHub Pages straight from the repository root. Pushi
 - **Privacy policy:** update the "Effective" date in `privacy.html` whenever the policy changes. Keep it in sync with what the app actually does.
 - **Styling:** the design tokens (colors, max width) are CSS custom properties at the top of `assets/style.css`. The look mirrors the app: true black, neon red, and a faint grid.
 - **Icons:** `favicon.png`, `apple-touch-icon.png` and `icon-512.png` are referenced from the page `<head>` and the hero. Replace the files in place to keep the paths working.
-- **App Store badge:** the hero currently shows a "Coming soon to the App Store" badge. Swap it for the real App Store link at launch.
+- **App Store link:** the hero shows Apple's official badge (`assets/app-store-badge.svg`, from Apple's marketing tools) linking to the [App Store listing](https://apps.apple.com/us/app/duoonair/id6833641045). Update the `href` in `index.html` if the listing changes.
 
 ## Contact
 
