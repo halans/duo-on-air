@@ -87,7 +87,42 @@ h3 { font-size: 18px; margin: 0 0 6px; }
   font-weight: 800; letter-spacing: 0.04em; font-size: 14px; color: var(--red-soft);
 }
 
+/* Message tiles become buttons (via script) that drive the sign preview. */
+.messages li:has(.msg-btn) { padding: 0; }
+.msg-btn {
+  padding: 6px 12px; border: 0; border-radius: 8px; background: none; cursor: pointer;
+  font: inherit; letter-spacing: inherit; color: inherit;
+}
+.msg-btn:hover { color: #fff; }
+.msg-btn:focus-visible { outline: 2px solid var(--red-soft); outline-offset: 2px; }
+.messages li:has(.msg-btn[aria-pressed="true"]) { border-color: var(--red); box-shadow: 0 0 12px rgba(255, 26, 20, 0.45); }
+.msg-btn[aria-pressed="true"] { color: #fff; }
+
+/* A small sign, styled like the app, showing the chosen message. */
+.sign-preview {
+  display: flex; align-items: center; justify-content: center;
+  height: 200px; margin: 16px 0 8px; padding: 0 24px;
+  background-color: #000;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+}
+.sign-text {
+  margin: 0; text-align: center; font-weight: 900; line-height: 0.95; letter-spacing: -0.01em;
+  color: var(--red);
+  text-shadow: 0 0 6px rgba(255, 26, 20, 0.9), 0 0 24px rgba(255, 26, 20, 0.55);
+}
+
 .msg-group { margin: 24px 0 10px; color: var(--text-dim); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* In use: desk photo beside a short explanation */
+.in-use { display: grid; grid-template-columns: 360px 1fr; gap: 28px; align-items: center; }
+.in-use .photo { margin: 0; }
+.in-use .photo img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); }
+.in-use p { margin: 0 0 12px; }
+@media (max-width: 700px) { .in-use { grid-template-columns: 1fr; gap: 20px; } }
 
 /* Screenshots */
 .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0; }
@@ -125,3 +160,30 @@ h3 { font-size: 18px; margin: 0 0 6px; }
 .site-footer { margin-top: 48px; padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--text-dim); font-size: 14px; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .site-footer nav a { margin-right: 16px; }
+
+/* Four audience cards read best as a 2×2 grid. */
+.features.audience { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 520px) { .features.audience { grid-template-columns: 1fr; } }
+
+/* Cross-promotion card for other iPhone Duo apps */
+.promo {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center;
+  margin: 24px 0 8px; padding: 28px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
+}
+.promo-icon { width: 96px; height: 96px; border-radius: 22px; }
+.promo h2 { font-size: 24px; margin: 0 0 8px; }
+.promo p { margin: 0; color: var(--text-dim); }
+.promo-cta {
+  display: flex; flex-direction: column; align-items: center; padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 10px;
+  color: var(--text); text-decoration: none; line-height: 1.2; white-space: nowrap;
+}
+.promo-cta small { font-size: 11px; color: var(--text-dim); }
+.promo-cta span { font-size: 17px; font-weight: 600; }
+.promo-cta:hover { border-color: #fff; color: #fff; }
+@media (max-width: 640px) {
+  .promo { grid-template-columns: auto 1fr; padding: 20px; gap: 16px; }
+  .promo-icon { width: 72px; height: 72px; border-radius: 16px; }
+  .promo-cta { grid-column: 1 / -1; justify-self: start; }
+}

@@ -6,6 +6,18 @@
   <title>DuoOnAir — An On Air sign for iPhone Duo</title>
   <meta name="description" content="DuoOnAir turns the outer screen of iPhone Duo into a glowing On Air sign. Stand it up in tent mode and let people know you're recording, in a meeting, or busy.">
   <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://halans.github.io/duo-on-air/">
+  <!-- Link previews (Messages, Slack, social media) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DuoOnAir">
+  <meta property="og:title" content="DuoOnAir — An On Air sign for iPhone Duo">
+  <meta property="og:description" content="DuoOnAir turns the outer screen of iPhone Duo into a glowing On Air sign. Stand it up in tent mode and let people know you're recording, in a meeting, or busy.">
+  <meta property="og:url" content="https://halans.github.io/duo-on-air/">
+  <meta property="og:image" content="https://halans.github.io/duo-on-air/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="An iPhone Duo folded into a tent on a desk, its outer screen showing ON A CALL in red.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/style.css">
@@ -74,6 +86,28 @@
         </ul>
       </section>
 
+      <section aria-labelledby="audience">
+        <h2 id="audience">Who it's for</h2>
+        <ul class="features audience">
+          <li>
+            <h3>Remote workers</h3>
+            <p>Let the people you live with know you're on a call or in a meeting, before they walk into frame.</p>
+          </li>
+          <li>
+            <h3>Podcasters and streamers</h3>
+            <p>A proper ON AIR or MIC LIVE light for the studio door, without buying one.</p>
+          </li>
+          <li>
+            <h3>Video creators</h3>
+            <p>Show RECORDING or QUIET PLEASE during a take, so nobody talks over it.</p>
+          </li>
+          <li>
+            <h3>Open offices</h3>
+            <p>FOCUS TIME or DO NOT DISTURB on the desk says it more politely than headphones.</p>
+          </li>
+        </ul>
+      </section>
+
       <section aria-labelledby="screenshots">
         <h2 id="screenshots">See it in action</h2>
         <div class="shots">
@@ -94,7 +128,11 @@
 
       <section aria-labelledby="messages">
         <h2 id="messages">Ready-made messages</h2>
-        <p class="subtle">31 messages in three categories, plus your own text.</p>
+        <p class="subtle">31 messages in three categories, plus your own text. <span class="try-hint" hidden>Tap one to try it.</span></p>
+
+        <div class="sign-preview" hidden>
+          <p class="sign-text" aria-live="polite">ON AIR</p>
+        </div>
 
         <h3 class="msg-group">Work</h3>
         <ul class="messages">
@@ -126,10 +164,35 @@
         </ol>
       </section>
 
+      <section class="in-use" aria-labelledby="in-use">
+        <figure class="photo">
+          <img src="assets/photo-desk.jpg"
+               srcset="assets/photo-desk-600.jpg 600w, assets/photo-desk.jpg 1200w"
+               sizes="(max-width: 700px) calc(100vw - 48px), 360px"
+               alt="An iPhone Duo folded into a tent on a white office desk, its outer screen showing ON A CALL in bright red letters."
+               width="1200" height="1200" loading="lazy">
+        </figure>
+        <div>
+          <h2 id="in-use">Made for tent mode</h2>
+          <p>Fold your iPhone Duo into a tent and set it on your desk. The outer screen faces the room, so colleagues and family can see at a glance that you're on a call, in a meeting, or recording.</p>
+          <p class="subtle">No stand, no extra hardware. Just the phone you already carry.</p>
+        </div>
+      </section>
+
       <section aria-labelledby="support">
         <h2 id="support">Support</h2>
         <p>Questions, feedback, or a problem with the app? Open an issue on <a href="support.html">the support page</a> or email <a href="mailto:support@halans.dev">support@halans.dev</a>.</p>
         <p class="subtle">DuoOnAir doesn't collect any personal data. Read the <a href="privacy.html">privacy policy</a>.</p>
+      </section>
+
+      <!-- Cross-promotion, matching the DuoOnAir card on the DuoFlex site. -->
+      <section class="promo" aria-labelledby="more-apps">
+        <img class="promo-icon" src="assets/duoflex-icon.png" alt="DuoFlex app icon: a twin-lens reflex camera" width="112" height="112" loading="lazy">
+        <div class="promo-body">
+          <h2 id="more-apps">Also made for iPhone Duo.</h2>
+          <p><a href="https://halans.github.io/DuoFlex/">DuoFlex</a> turns iPhone Duo into a waist-level viewfinder camera, to shoot from the hip, with the settings on one half of the folded inner display and the viewfinder on the other.</p>
+        </div>
+        <a class="promo-cta" href="https://halans.github.io/DuoFlex/"><small>Coming soon</small><span>Learn more</span></a>
       </section>
     </div>
   </main>
@@ -167,6 +230,68 @@
       });
       // Click anywhere (backdrop, image, or close button) to dismiss; Esc works natively.
       dlg.addEventListener('click', function () { dlg.close(); });
+    })();
+
+    // Message tiles: tap one to show it on the sign preview, like the app.
+    (function () {
+      var preview = document.querySelector('.sign-preview');
+      var sign = preview && preview.querySelector('.sign-text');
+      if (!sign) return;
+
+      // Split words into one or two lines, keeping the longer line as short as possible.
+      function lines(text) {
+        var words = text.split(' ');
+        if (words.length < 2) return [text];
+        var best = [text], bestLen = text.length;
+        for (var i = 1; i < words.length; i++) {
+          var a = words.slice(0, i).join(' '), b = words.slice(i).join(' ');
+          var len = Math.max(a.length, b.length);
+          if (len < bestLen) { best = [a, b]; bestLen = len; }
+        }
+        return best;
+      }
+
+      function show(text) {
+        var parts = lines(text);
+        sign.textContent = '';
+        parts.forEach(function (line, i) {
+          if (i) sign.appendChild(document.createElement('br'));
+          sign.appendChild(document.createTextNode(line));
+        });
+        sign.setAttribute('aria-label', text);
+        // Fit the longest line to the preview's width.
+        var longest = Math.max.apply(null, parts.map(function (l) { return l.length; }));
+        var size = Math.min(88, (preview.clientWidth - 48) / (longest * 0.7));
+        sign.style.fontSize = Math.max(28, size) + 'px';
+      }
+
+      var tiles = document.querySelectorAll('.messages li');
+      tiles.forEach(function (li) {
+        var text = li.textContent.trim();
+        if (text === 'YOUR OWN TEXT') return;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'msg-btn';
+        btn.textContent = text;
+        btn.setAttribute('aria-pressed', text === 'ON AIR' ? 'true' : 'false');
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.msg-btn[aria-pressed="true"]').forEach(function (b) {
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.setAttribute('aria-pressed', 'true');
+          show(text);
+        });
+        li.textContent = '';
+        li.appendChild(btn);
+      });
+
+      preview.hidden = false;
+      document.querySelector('.try-hint').hidden = false;
+      show('ON AIR');
+      window.addEventListener('resize', function () {
+        var current = document.querySelector('.msg-btn[aria-pressed="true"]');
+        if (current) show(current.textContent);
+      });
     })();
   </script>
 </body>
