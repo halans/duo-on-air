@@ -40,7 +40,18 @@ a:focus-visible { outline: 2px solid var(--red-soft); outline-offset: 3px; borde
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: 0.02em; }
 .brand img { width: 32px; height: 32px; border-radius: 8px; }
-.site-header nav a { margin-left: 18px; color: var(--text-dim); text-decoration: none; font-size: 15px; }
+.site-header nav { display: flex; align-items: center; }
+/* 44px-tall tap targets; the padding replaces the old margin so spacing is unchanged on desktop. */
+.site-header nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 9px; color: var(--text-dim); text-decoration: none; font-size: 15px; }
+.site-header nav a:last-child { padding-right: 0; }
+/* Phones: logo above, links centered below, so nothing squeezes or wraps. */
+@media (max-width: 560px) {
+  .site-header { padding: 12px 0 4px; }
+  .site-header .wrap { flex-direction: column; gap: 2px; }
+  .site-header nav { justify-content: center; }
+  .site-header nav a { padding: 0 14px; font-size: 16px; }
+  .site-header nav a:last-child { padding-right: 14px; }
+}
 .site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--text); }
 
 /* Hero */
@@ -159,7 +170,9 @@ h3 { font-size: 18px; margin: 0 0 6px; }
 /* Footer */
 .site-footer { margin-top: 48px; padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--text-dim); font-size: 14px; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-.site-footer nav a { margin-right: 16px; }
+.site-footer nav { display: flex; flex-wrap: wrap; }
+.site-footer nav a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 16px; }
+@media (max-width: 560px) { .site-footer .wrap { flex-direction: column; align-items: center; text-align: center; } .site-footer nav { justify-content: center; } .site-footer nav a { margin: 0 8px; } }
 
 /* Four audience cards read best as a 2×2 grid. */
 .features.audience { grid-template-columns: repeat(2, 1fr); }
