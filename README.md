@@ -30,6 +30,7 @@ This repository contains only the marketing site. The iOS app is not part of it.
 ├── sitemap.xml           # Submit in Google Search Console / Bing Webmaster Tools
 ├── assets/
 │   ├── style.css         # Shared stylesheet
+│   ├── nav.js            # Hamburger menu for the main navigation on phones
 │   ├── favicon.png       # Browser tab icon
 │   ├── og-*.jpg          # Link-preview images (home, support, privacy), 1200×630
 │   ├── apple-touch-icon.png
@@ -38,7 +39,7 @@ This repository contains only the marketing site. The iOS app is not part of it.
 └── .nojekyll             # Tells GitHub Pages to skip Jekyll processing
 ```
 
-It is plain HTML and CSS. There is no build step, no package manager, and no JavaScript.
+It is plain HTML and CSS. There is no build step and no package manager. The only JavaScript is a few small scripts for the menu, the screenshot lightbox and the message preview, and the pages work without it.
 
 ## Run locally
 

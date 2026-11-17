@@ -44,7 +44,7 @@ a:focus-visible { outline: 2px solid var(--red-soft); outline-offset: 3px; borde
 /* 44px-tall tap targets; the padding replaces the old margin so spacing is unchanged on desktop. */
 .site-header nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 9px; color: var(--text-dim); text-decoration: none; font-size: 15px; }
 .site-header nav a:last-child { padding-right: 0; }
-/* Phones: logo above, links centered below, so nothing squeezes or wraps. */
+/* Phones without JavaScript: logo above, links centered below. */
 @media (max-width: 560px) {
   .site-header { padding: 12px 0 4px; }
   .site-header .wrap { flex-direction: column; gap: 2px; }
@@ -53,6 +53,39 @@ a:focus-visible { outline: 2px solid var(--red-soft); outline-offset: 3px; borde
   .site-header nav a:last-child { padding-right: 14px; }
 }
 .site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--text); }
+
+/* Hamburger menu (button added by assets/nav.js) */
+.nav-toggle { display: none; }
+@media (max-width: 560px) {
+  .site-header.has-toggle { padding: 8px 0; }
+  .site-header.has-toggle .wrap { flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 0; }
+  .nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; margin-right: -10px; padding: 0;
+    background: none; border: 0; border-radius: 10px; color: var(--text); cursor: pointer;
+  }
+  .nav-toggle:focus-visible { outline: 2px solid var(--red-soft); outline-offset: 2px; }
+  .nav-toggle .bars { position: relative; display: block; width: 22px; height: 16px; }
+  .nav-toggle .bars i {
+    position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px; background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle .bars i:nth-child(1) { top: 0; }
+  .nav-toggle .bars i:nth-child(2) { top: 7px; }
+  .nav-toggle .bars i:nth-child(3) { top: 14px; }
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .site-header.has-toggle nav {
+    display: none; flex-direction: column; align-items: stretch; width: 100%;
+    margin-top: 8px; padding-top: 4px; border-top: 1px solid var(--line);
+  }
+  .site-header.has-toggle.open nav { display: flex; }
+  .site-header.has-toggle nav a,
+  .site-header.has-toggle nav a:last-child { padding: 0 2px; font-size: 18px; min-height: 48px; }
+  .site-header.has-toggle nav a + a { border-top: 1px solid var(--line); }
+}
+@media (prefers-reduced-motion: reduce) { .nav-toggle .bars i { transition: none; } }
 
 /* Hero */
 .hero { text-align: center; padding: 48px 0 32px; }
