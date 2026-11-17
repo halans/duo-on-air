@@ -25,9 +25,13 @@ This repository contains only the marketing site. The iOS app is not part of it.
 ├── index.html            # Landing page: features, messages, how it works, support
 ├── support.html          # Support page: how to file issues on GitHub
 ├── privacy.html          # Privacy policy
+├── 404.html              # Not-found page (GitHub Pages serves it for missing URLs)
+├── favicon.ico           # Multi-size icon (16/32/48) for browsers that request .ico
+├── sitemap.xml           # Submit in Google Search Console / Bing Webmaster Tools
 ├── assets/
 │   ├── style.css         # Shared stylesheet
 │   ├── favicon.png       # Browser tab icon
+│   ├── og-*.jpg          # Link-preview images (home, support, privacy), 1200×630
 │   ├── apple-touch-icon.png
 │   ├── icon-512.png      # App icon shown in the hero
 │   └── screenshot-*.jpg  # App screenshots (sign, settings, help), 1280×880
